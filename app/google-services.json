@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "503841056465",
+    "project_id": "eatzy-d3b73",
+    "storage_bucket": "eatzy-d3b73.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:503841056465:android:e91c3f996c21d3ff0887f0",
+        "android_client_info": {
+          "package_name": "com.softcross.eatzy"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDOaItGi5buEmOLCgeZrlq_lidLYduXWXU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

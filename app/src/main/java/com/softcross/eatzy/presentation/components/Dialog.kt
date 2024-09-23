@@ -16,10 +16,12 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.compose.ui.window.Dialog
 import androidx.compose.ui.window.DialogProperties
+import com.softcross.eatzy.R
 import com.softcross.eatzy.presentation.theme.BackgroundColor
 import com.softcross.eatzy.presentation.theme.PoppinsLight
 import com.softcross.eatzy.presentation.theme.PoppinsMedium
@@ -118,7 +120,7 @@ fun NonIgnorableTwoButtonDialog(
                     onCancelClick();
                     onSubmitClick();
                 })
-                FilledButton(text = "Cancel", modifier = Modifier.weight(0.5f), onClick = onCancelClick, color = SecondaryGray)
+                FilledButton(text = stringResource(R.string.cancel), modifier = Modifier.weight(0.5f), onClick = onCancelClick, color = SecondaryGray)
             }
         }
     }

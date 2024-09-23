@@ -84,4 +84,7 @@
     <string name="manage_your_addresses">Adreslerinizi yönetin</string>
     <string name="sign_out">Çıkış yap</string>
     <string name="sign_out_from_your_account">Hesabınızdan çıkış yapın</string>
+    <string name="cancel">İptal</string>
+    <string name="you_don_t_have_an_active_network_connection_do_you_want_retry">Aktif bir internet bağlantınız bulunmamakta, tekrar denemek ister misiniz?</string>
+    <string name="network_connection_error">İnternet bağlantısı hatası</string>
 </resources>

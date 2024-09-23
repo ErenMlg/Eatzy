@@ -56,7 +56,6 @@ fun EatzyBottomNavigationBar(
         BottomNavItem.CampaignScreen,
         BottomNavItem.AccountScreen
     )
-
     AnimatedVisibility(
         visible = bottomBarState.value,
         enter = slideInVertically(initialOffsetY = { it }),

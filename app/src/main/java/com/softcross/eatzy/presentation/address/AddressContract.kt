@@ -5,6 +5,7 @@ import com.softcross.eatzy.domain.model.Location
 object AddressContract {
     data class UiState(
         val isLoading: Boolean = false,
+        val locationList : List<Location> = emptyList(),
         val selectedLocation : Location? = null,
         val errorMessage: String = "",
         val title: String = "",

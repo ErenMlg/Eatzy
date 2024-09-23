@@ -22,6 +22,10 @@ import androidx.compose.material3.Icon
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
@@ -39,6 +43,7 @@ import androidx.lifecycle.repeatOnLifecycle
 import com.softcross.eatzy.R
 import com.softcross.eatzy.presentation.components.FilledButton
 import com.softcross.eatzy.presentation.components.IconTextField
+import com.softcross.eatzy.presentation.components.NonIgnorableDialog
 import com.softcross.eatzy.presentation.theme.BackgroundColor
 import com.softcross.eatzy.presentation.theme.EatzyTheme
 import com.softcross.eatzy.presentation.theme.PoppinsMedium
@@ -58,6 +63,7 @@ fun AddressRoute(
     onNavigateProfile: () -> Unit
 ) {
     val lifecycleOwner = LocalLifecycleOwner.current
+    var showDialog by remember { mutableStateOf(false) }
     LaunchedEffect(uiEffect, lifecycleOwner) {
         lifecycleOwner.lifecycle.repeatOnLifecycle(Lifecycle.State.STARTED) {
             uiEffect.collect { effect ->
@@ -69,8 +75,22 @@ fun AddressRoute(
             }
         }
     }
+
+    if (showDialog){
+        NonIgnorableDialog(
+            title = stringResource(R.string.please_add_an_address),
+            message = stringResource(R.string.you_don_t_have_any_address_please_add_an_address_to_continue),
+            buttonText = stringResource(R.string.add),
+            onButtonClick = { showDialog = false }
+        )
+    }
+
     BackHandler {
-        onNavigateProfile()
+        if (uiState.locationList.isEmpty() && uiState.isLoading.not()) {
+            showDialog = true
+        } else {
+            onNavigateProfile()
+        }
     }
     Column(
         modifier = Modifier
@@ -98,7 +118,13 @@ fun AddressRoute(
                     .clip(shape = RoundedCornerShape(32.dp))
                     .background(PrimaryContainerColor)
                     .padding(6.dp)
-                    .clickable { onNavigateProfile() }
+                    .clickable {
+                        if (uiState.locationList.isEmpty() && uiState.isLoading.not()) {
+                            showDialog = true
+                        } else {
+                            onNavigateProfile()
+                        }
+                    }
             )
             Text(
                 text = stringResource(R.string.new_address),
@@ -185,7 +211,10 @@ fun AddressScreen(
                     tint = PrimaryRed
                 )
                 Text(
-                    text = stringResource(R.string.str_validation, stringResource(R.string.title).lowercase()),
+                    text = stringResource(
+                        R.string.str_validation,
+                        stringResource(R.string.title).lowercase()
+                    ),
                     fontSize = 12.sp,
                     modifier = Modifier.padding(horizontal = 4.dp),
                     color = TextColor
@@ -217,7 +246,10 @@ fun AddressScreen(
                     tint = PrimaryRed
                 )
                 Text(
-                    text = stringResource(R.string.str_validation, stringResource(R.string.country).lowercase()),
+                    text = stringResource(
+                        R.string.str_validation,
+                        stringResource(R.string.country).lowercase()
+                    ),
                     fontSize = 12.sp,
                     modifier = Modifier.padding(horizontal = 4.dp),
                     color = TextColor
@@ -249,7 +281,10 @@ fun AddressScreen(
                     tint = PrimaryRed
                 )
                 Text(
-                    text = stringResource(R.string.str_validation, stringResource(R.string.city).lowercase()),
+                    text = stringResource(
+                        R.string.str_validation,
+                        stringResource(R.string.city).lowercase()
+                    ),
                     fontSize = 12.sp,
                     modifier = Modifier.padding(horizontal = 4.dp),
                     color = TextColor
@@ -281,7 +316,10 @@ fun AddressScreen(
                     tint = PrimaryRed
                 )
                 Text(
-                    text = stringResource(R.string.str_validation, stringResource(R.string.district).lowercase()),
+                    text = stringResource(
+                        R.string.str_validation,
+                        stringResource(R.string.district).lowercase()
+                    ),
                     fontSize = 12.sp,
                     modifier = Modifier.padding(horizontal = 4.dp),
                     color = TextColor
@@ -313,7 +351,10 @@ fun AddressScreen(
                     tint = PrimaryRed
                 )
                 Text(
-                    text = stringResource(R.string.str_validation, stringResource(R.string.open_address).lowercase()),
+                    text = stringResource(
+                        R.string.str_validation,
+                        stringResource(R.string.open_address).lowercase()
+                    ),
                     fontSize = 12.sp,
                     modifier = Modifier.padding(horizontal = 4.dp),
                     color = TextColor

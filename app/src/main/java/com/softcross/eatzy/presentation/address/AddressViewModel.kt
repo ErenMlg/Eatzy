@@ -31,6 +31,7 @@ class AddressViewModel @Inject constructor(
     val uiEffect: Flow<AddressContract.UiEffect> by lazy { _uiEffect.receiveAsFlow() }
 
     init {
+        getLocations()
         val selectedLocation =
             savedStateHandle.get<String>("data")?.let { Json.decodeFromString<Location>(it) }
         updateUiState {
@@ -80,6 +81,26 @@ class AddressViewModel @Inject constructor(
                 }
 
             is AddressContract.UiAction.OnClearFields -> clearFields()
+        }
+    }
+
+    private fun getLocations() = viewModelScope.launch {
+        when (val result = firebaseRepository.getLocations()) {
+            is ResponseState.Success -> {
+                updateUiState {
+                    copy(
+                        locationList = result.result,
+                    )
+                }
+            }
+
+            is ResponseState.Error -> {
+                updateUiState {
+                    copy(
+                        errorMessage = "Error on fetching locations"
+                    )
+                }
+            }
         }
     }
 

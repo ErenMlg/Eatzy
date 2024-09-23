@@ -84,4 +84,7 @@
     <string name="manage_your_addresses">Manage your addresses</string>
     <string name="sign_out">Sign out</string>
     <string name="sign_out_from_your_account">Sign out from your account</string>
+    <string name="cancel">Cancel</string>
+    <string name="you_don_t_have_an_active_network_connection_do_you_want_retry">You don\'t have an active network connection, do you want retry?</string>
+    <string name="network_connection_error">Network Connection Error</string>
 </resources>

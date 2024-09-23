@@ -2,6 +2,7 @@ package com.softcross.eatzy.presentation.register
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.softcross.eatzy.common.EatzySingleton
 import com.softcross.eatzy.domain.repository.FirebaseRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.channels.Channel
@@ -54,7 +55,11 @@ class RegisterViewModel @Inject constructor(
             uiState.value.phoneNumber
         )) {
             is ResponseState.Error -> emitUiEffect(UiEffect.ShowSnackbar(result.exception.message.toString()))
-            is ResponseState.Success -> emitUiEffect(UiEffect.NavigateToMainScreen)
+            is ResponseState.Success -> {
+                EatzySingleton.currentUser = result.result
+                EatzySingleton.currentUsername = result.result.username
+                emitUiEffect(UiEffect.NavigateToMainScreen)
+            }
         }
         updateUiState { copy(isLoading = false) }
     }

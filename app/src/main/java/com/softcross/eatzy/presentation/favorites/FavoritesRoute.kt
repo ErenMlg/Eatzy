@@ -235,13 +235,13 @@ fun FavoritesScreen(
                 modifier = Modifier
                     .fillMaxWidth(0.9f)
             ) {
-                items(favoritesList.size, key = { favoritesList[it].id }) { it ->
-                    val currentFood = favoritesList[it]
+                items(favoritesList.size, key = { favoritesList[it].id }) { index ->
+                    val currentFood = favoritesList[index]
                     Row(
                         modifier = Modifier
                             .fillMaxWidth()
                             .height(140.dp)
-                            .padding(bottom = 16.dp, top = if (it == 0) 16.dp else 0.dp)
+                            .padding(bottom = 16.dp, top = if (index == 0) 16.dp else 0.dp)
                             .shadow(
                                 2.dp,
                                 shape = RoundedCornerShape(16.dp),

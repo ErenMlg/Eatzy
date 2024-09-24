@@ -30,7 +30,8 @@ I participated in the bootcamp program initiated by Techcareer Turkcell for Jetp
   <li><a href="https://developer.android.com/topic/architecture/domain-layer?hl=tr">Use Case</a>: Located domain layer that sits between the UI layer and the data layer.</li>
   <li><a href="https://coil-kt.github.io/coil/compose/">Coil</a>: Coil for show pictures on network.</li>
   <li><a href="https://coil-kt.github.io/coil/compose/">Firebase Auth</a>: Utilized for user login and registration functionalities.</li>
-  <li><a href="https://coil-kt.github.io/coil/compose/">Firebase Firestore</a>: Used for storing user information, locations, payments, and promotion codes. (Payments etc. musn't hide here but this is prototype)</li>
+  <li><a href="https://coil-kt.github.io/coil/compose/">Firebase Firestore</a>: Used for storing user information, locations, payments, and promotion codes. (Payments etc. musn't hide here but this is prototype</li>
+    <li><a href="https://developer.android.com/jetpack/androidx/releases/room?hl=tr">Room</a>: Used for storing user' favorite foods.</li>
 </ul>
 
 ## Architecture

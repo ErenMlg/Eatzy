@@ -248,7 +248,7 @@ fun ProductDetailRouteScreen(
                         fontFamily = PoppinsMedium,
                     )
                     Text(
-                        text = "$${food.price}",
+                        text = stringResource(id = R.string.price, food.price),
                         color = PrimaryOrange,
                         fontSize = 24.sp,
                         fontFamily = PoppinsMedium,

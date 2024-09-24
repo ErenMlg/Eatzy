@@ -3,20 +3,22 @@ package com.softcross.eatzy.data.repository
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.SetOptions
+import com.softcross.eatzy.R
+import com.softcross.eatzy.common.ContextProvider
 import com.softcross.eatzy.common.EatzySingleton
-import com.softcross.eatzy.domain.model.User
-import com.softcross.eatzy.domain.repository.FirebaseRepository
 import com.softcross.eatzy.common.ResponseState
 import com.softcross.eatzy.domain.model.Location
 import com.softcross.eatzy.domain.model.Payment
 import com.softcross.eatzy.domain.model.Promotion
+import com.softcross.eatzy.domain.model.User
+import com.softcross.eatzy.domain.repository.FirebaseRepository
 import kotlinx.coroutines.tasks.await
-import java.lang.Exception
 import javax.inject.Inject
 
 class FirebaseRepositoryImpl @Inject constructor(
     private val firebaseAuth: FirebaseAuth,
-    private val firebaseFirestore: FirebaseFirestore
+    private val firebaseFirestore: FirebaseFirestore,
+    private val provider: ContextProvider
 ) : FirebaseRepository {
 
     override suspend fun loginUser(email: String, password: String): ResponseState<User> {
@@ -83,7 +85,7 @@ class FirebaseRepositoryImpl @Inject constructor(
             return userModel
         } else {
             firebaseAuth.signOut()
-            throw Exception("Something went wrong while getting user details from firestore")
+            throw Exception(provider.context.getString(R.string.something_went_wrong_while_getting_user_details_from_firestore))
         }
     }
 
@@ -312,10 +314,10 @@ class FirebaseRepositoryImpl @Inject constructor(
                     println("code: $code, title: $title, discount: $discount")
                     ResponseState.Success(Promotion(code, title, discount))
                 } else {
-                    ResponseState.Error(Exception("Promotion find but not belongs to user"))
+                    ResponseState.Error(Exception(provider.context.getString(R.string.promotion_find_but_not_belongs_to_user)))
                 }
             } else {
-                ResponseState.Error(Exception("Promotion not found"))
+                ResponseState.Error(Exception(provider.context.getString(R.string.promotion_not_found)))
             }
         } catch (e: Exception) {
             ResponseState.Error(e)

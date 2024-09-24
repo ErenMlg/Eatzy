@@ -3,6 +3,8 @@ package com.softcross.eatzy.presentation.address
 import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.softcross.eatzy.R
+import com.softcross.eatzy.common.ContextProvider
 import com.softcross.eatzy.common.ResponseState
 import com.softcross.eatzy.domain.model.Location
 import com.softcross.eatzy.domain.repository.FirebaseRepository
@@ -21,7 +23,8 @@ import javax.inject.Inject
 @HiltViewModel
 class AddressViewModel @Inject constructor(
     private val firebaseRepository: FirebaseRepository,
-    savedStateHandle: SavedStateHandle
+    savedStateHandle: SavedStateHandle,
+    private val provider: ContextProvider
 ) : ViewModel() {
 
     private val _uiState = MutableStateFlow(AddressContract.UiState())
@@ -97,7 +100,7 @@ class AddressViewModel @Inject constructor(
             is ResponseState.Error -> {
                 updateUiState {
                     copy(
-                        errorMessage = "Error on fetching locations"
+                        errorMessage = provider.context.getString(R.string.error_on_fetching_locations)
                     )
                 }
             }
@@ -135,7 +138,7 @@ class AddressViewModel @Inject constructor(
                 is ResponseState.Error -> {
                     updateUiState {
                         copy(
-                            errorMessage = response.exception.message ?: "An unknown error occurred"
+                            errorMessage = response.exception.message ?: provider.context.getString(R.string.an_unknown_error_occurred)
                         )
                     }
                 }
@@ -158,7 +161,7 @@ class AddressViewModel @Inject constructor(
                 is ResponseState.Error -> {
                     updateUiState {
                         copy(
-                            errorMessage = response.exception.message ?: "An unknown error occurred"
+                            errorMessage = response.exception.message ?: provider.context.getString(R.string.an_unknown_error_occurred)
                         )
                     }
                 }

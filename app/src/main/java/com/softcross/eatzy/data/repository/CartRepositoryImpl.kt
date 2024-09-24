@@ -1,6 +1,8 @@
 package com.softcross.eatzy.data.repository
 
 import androidx.lifecycle.MutableLiveData
+import com.softcross.eatzy.R
+import com.softcross.eatzy.common.ContextProvider
 import com.softcross.eatzy.common.EatzySingleton
 import com.softcross.eatzy.common.ResponseState
 import com.softcross.eatzy.common.extension.mapResponse
@@ -12,7 +14,8 @@ import com.softcross.eatzy.domain.repository.CartRepository
 import javax.inject.Inject
 
 class CartRepositoryImpl @Inject constructor(
-    private val remoteDataSource: RemoteDataSource
+    private val remoteDataSource: RemoteDataSource,
+    private val provider: ContextProvider
 ) : CartRepository {
 
     override suspend fun getCartPrice(): Int {
@@ -44,7 +47,7 @@ class CartRepositoryImpl @Inject constructor(
         if (requestCounter.value == cartList.size) {
             return ResponseState.Success(Unit)
         } else {
-            return ResponseState.Error(Exception("Error on delete process"))
+            return ResponseState.Error(Exception(provider.context.getString(R.string.error_on_delete_process),))
         }
     }
 

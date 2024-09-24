@@ -8,7 +8,7 @@
     <string name="str_email">Email</string>
     <string name="str_welcome_login">Hoşgeldiniz, hesabınıza giriş yapın</string>
     <string name="str_remember">Beni hatırla</string>
-    <string name="str_forgot_password">Şifremi unuttum</string>
+    <string name="str_forgot_password">Kayıt ol</string>
     <string name="str_password_validation_title">Şifre içermeli;</string>
     <string name="str_password_validation_one">en az 8 karakter</string>
     <string name="str_password_validation_two">en az bir rakam</string>
@@ -87,4 +87,18 @@
     <string name="cancel">İptal</string>
     <string name="you_don_t_have_an_active_network_connection_do_you_want_retry">Aktif bir internet bağlantınız bulunmamakta, tekrar denemek ister misiniz?</string>
     <string name="network_connection_error">İnternet bağlantısı hatası</string>
+    <string name="promotions">Promosyon</string>
+    <string name="select_a_payment">Ödeme seçiniz</string>
+    <string name="an_error_on_fetching_promotion_list">Promosyon listelesini alırken bir hata oluştu</string>
+    <string name="no">"Numara: "</string>
+    <string name="date">"SKT: "</string>
+    <string name="select_a_location">Adres seçiniz</string>
+    <string name="promotion_find_but_not_belongs_to_user">Promosyon kodu kullanıcıya ait değil</string>
+    <string name="something_went_wrong_while_getting_user_details_from_firestore">Kullanıcı bilgilerini alırken bir hata oluştu</string>
+    <string name="promotion_not_found">Promosyon kodu bulunamadı</string>
+    <string name="error_on_delete_process">Silme işleminde bir hata oldu</string>
+    <string name="error_on_fetching_locations">Yemekleri alırken bir hata oluştu</string>
+    <string name="an_unknown_error_occurred">Bilinmeyen bir hata oluştu</string>
+    <string name="cart_is_empty">Sepet boş</string>
+    <string name="you_can_enter_only_one_promotion_code">Sadece bir adet promosyon kopdu kullanabilirsiniz</string>
 </resources>

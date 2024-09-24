@@ -23,6 +23,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -57,7 +58,7 @@ fun ShowCustomPaymentSheet(
             verticalAlignment = Alignment.CenterVertically
         ) {
             Text(
-                text = "Select a payment",
+                text = stringResource(R.string.select_a_payment),
                 color = TextColor,
                 fontFamily = PoppinsMedium
             )
@@ -68,7 +69,7 @@ fun ShowCustomPaymentSheet(
                     .padding(8.dp),
                 verticalAlignment = Alignment.CenterVertically
             ) {
-                Text(text = "New payment", color = TextColor, fontSize = 14.sp)
+                Text(text = stringResource(id = R.string.new_payment), color = TextColor, fontSize = 14.sp)
                 Icon(
                     painter = painterResource(id = R.drawable.icon_add_location),
                     contentDescription = "",
@@ -96,7 +97,7 @@ fun ShowCustomPaymentSheet(
                         iterations = 1
                     )
                     Text(
-                        text = "No favorites yet",
+                        text = stringResource(id = R.string.no_favorites_yet),
                         color = TextColor,
                         fontFamily = PoppinsMedium,
                         modifier = Modifier
@@ -151,7 +152,7 @@ fun ShowCustomPaymentSheet(
                                 horizontalArrangement = Arrangement.SpaceBetween
                             ) {
                                 Text(
-                                    text = "No: " + currentPayment.cartNumber.substring(
+                                    text = stringResource(R.string.no) + currentPayment.cartNumber.substring(
                                         currentPayment.cartNumber.length - 4,
                                         currentPayment.cartNumber.length
                                     ),
@@ -166,7 +167,7 @@ fun ShowCustomPaymentSheet(
                                     fontFamily = PoppinsMedium
                                 )
                                 Text(
-                                    text = "Date: " + currentPayment.cartExpiryDate,
+                                    text = stringResource(R.string.date) + currentPayment.cartExpiryDate,
                                     color = TextColor,
                                     fontSize = 12.sp,
                                     fontFamily = PoppinsMedium
@@ -201,7 +202,7 @@ fun ShowCustomLocationSheet(
             verticalAlignment = Alignment.CenterVertically
         ) {
             Text(
-                text = "Select a location",
+                text = stringResource(R.string.select_a_location),
                 color = TextColor,
                 fontFamily = PoppinsMedium
             )
@@ -212,7 +213,7 @@ fun ShowCustomLocationSheet(
                     .padding(8.dp),
                 verticalAlignment = Alignment.CenterVertically
             ) {
-                Text(text = "New Location", color = TextColor, fontSize = 14.sp)
+                Text(text = stringResource(id = R.string.new_address), color = TextColor, fontSize = 14.sp)
                 Icon(
                     painter = painterResource(id = R.drawable.icon_add_location),
                     contentDescription = "",
@@ -291,7 +292,7 @@ fun ShowCustomLocationSheet(
                         iterations = 1
                     )
                     Text(
-                        text = "No favorites yet",
+                        text = stringResource(id = R.string.no_favorites_yet),
                         color = TextColor,
                         fontFamily = PoppinsMedium,
                         modifier = Modifier

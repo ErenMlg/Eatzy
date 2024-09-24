@@ -2,6 +2,8 @@ package com.softcross.eatzy.presentation.cart
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.softcross.eatzy.R
+import com.softcross.eatzy.common.ContextProvider
 import com.softcross.eatzy.common.EatzySingleton
 import com.softcross.eatzy.common.ResponseState
 import com.softcross.eatzy.common.extension.mapResponse
@@ -24,7 +26,8 @@ import javax.inject.Inject
 @HiltViewModel
 class CartViewModel @Inject constructor(
     private val firebaseRepository: FirebaseRepository,
-    private val cartRepository: CartRepository
+    private val cartRepository: CartRepository,
+    private val provider: ContextProvider
 ) : ViewModel() {
 
     private val _uiState = MutableStateFlow(CartContract.UiState())
@@ -84,7 +87,8 @@ class CartViewModel @Inject constructor(
                         updateUiState {
                             copy(
                                 isLoading = false,
-                                errorMessage = result.exception.message ?: "An error occurred"
+                                errorMessage = result.exception.message ?: provider.context.getString(
+                                    R.string.an_unknown_error_occurred)
                             )
                         }
                     }
@@ -102,10 +106,10 @@ class CartViewModel @Inject constructor(
                     }
                 }
             }else{
-                updateUiState { copy(errorMessage = "Cart is empty") }
+                updateUiState { copy(errorMessage = provider.context.getString(R.string.cart_is_empty)) }
             }
         } else {
-            updateUiState { copy(errorMessage = "You can enter only one promotion code") }
+            updateUiState { copy(errorMessage = provider.context.getString(R.string.you_can_enter_only_one_promotion_code)) }
         }
 
     }
@@ -150,7 +154,7 @@ class CartViewModel @Inject constructor(
                 updateUiState {
                     copy(
                         isCartLoading = false,
-                        errorMessage = response.exception.message ?: "An error occurred"
+                        errorMessage = response.exception.message ?: provider.context.getString(R.string.an_unknown_error_occurred)
                     )
                 }
             }
@@ -178,7 +182,7 @@ class CartViewModel @Inject constructor(
                 updateUiState {
                     copy(
                         isCartLoading = false,
-                        errorMessage = response.exception.message ?: "An error occurred"
+                        errorMessage = response.exception.message ?: provider.context.getString(R.string.an_unknown_error_occurred)
                     )
                 }
             }
@@ -206,7 +210,7 @@ class CartViewModel @Inject constructor(
                 updateUiState {
                     copy(
                         isCartLoading = false,
-                        errorMessage = "An error occurred"
+                        errorMessage = provider.context.getString(R.string.an_unknown_error_occurred)
                     )
                 }
             }
@@ -229,7 +233,7 @@ class CartViewModel @Inject constructor(
             is ResponseState.Error -> {
                 updateUiState {
                     copy(
-                        errorMessage = response.exception.message ?: "An error occurred",
+                        errorMessage = response.exception.message ?: provider.context.getString(R.string.an_unknown_error_occurred),
                         isCartLoading = false
                     )
                 }

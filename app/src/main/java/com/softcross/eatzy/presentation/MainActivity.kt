@@ -61,7 +61,7 @@ class MainActivity : ComponentActivity() {
             val context = LocalContext.current
             val networkStatusHelper = NetworkStatusHelper(context)
             val networkStatus by networkStatusHelper.isNetworkAvailable.observeAsState(
-                initial = false
+                initial = true
             )
             var showNetworkError by remember {
                 mutableStateOf(false)

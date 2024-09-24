@@ -90,7 +90,7 @@ fun PromotionRoute(
                     .clickable(onClick = { navigateToMain() })
             )
             Text(
-                text = "Promotions",
+                text = stringResource(R.string.promotions),
                 color = TextColor,
                 fontSize = 16.sp,
                 fontFamily = PoppinsMedium,
@@ -124,7 +124,7 @@ fun PromotionRoute(
                         iterations = 1
                     )
                     Text(
-                        text = "An error on fetching promotion list",
+                        text = stringResource(R.string.an_error_on_fetching_promotion_list),
                         color = TextColor,
                         fontFamily = PoppinsMedium,
                         modifier = Modifier
@@ -133,7 +133,7 @@ fun PromotionRoute(
                     )
                 }
                 FilledButton(
-                    text = "Retry",
+                    text = stringResource(id = R.string.retry),
                     color = PrimaryButtonColor,
                     onClick = { onAction(PromotionContract.UiAction.OnRetryClicked) },
                     modifier = Modifier

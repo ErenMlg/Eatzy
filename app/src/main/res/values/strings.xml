@@ -7,7 +7,7 @@
     <string name="str_email">Email</string>
     <string name="str_welcome_login">Welcome back, login to your account</string>
     <string name="str_remember">Remember me</string>
-    <string name="str_forgot_password">Forgot Password</string>
+    <string name="str_forgot_password">Register</string>
     <string name="str_password_validation_title">Password must be;</string>
     <string name="str_password_validation_one">at least 8 characters</string>
     <string name="str_password_validation_two">a digit must occur at least once</string>
@@ -86,4 +86,18 @@
     <string name="cancel">Cancel</string>
     <string name="you_don_t_have_an_active_network_connection_do_you_want_retry">You don\'t have an active network connection, do you want retry?</string>
     <string name="network_connection_error">Network Connection Error</string>
+    <string name="promotions">Promotions</string>
+    <string name="select_a_payment">Select a payment</string>
+    <string name="an_error_on_fetching_promotion_list">An error on fetching promotion list</string>
+    <string name="no">"No: "</string>
+    <string name="date">"Date: "</string>
+    <string name="select_a_location">Select a location</string>
+    <string name="promotion_find_but_not_belongs_to_user">Promotion find but not belongs to user</string>
+    <string name="something_went_wrong_while_getting_user_details_from_firestore">Something went wrong while getting user details from firestore</string>
+    <string name="promotion_not_found">Promotion not found</string>
+    <string name="error_on_delete_process">Error on delete process</string>
+    <string name="error_on_fetching_locations">Error on fetching locations</string>
+    <string name="an_unknown_error_occurred">An unknown error occurred</string>
+    <string name="cart_is_empty">Cart is empty</string>
+    <string name="you_can_enter_only_one_promotion_code">You can enter only one promotion code</string>
 </resources>

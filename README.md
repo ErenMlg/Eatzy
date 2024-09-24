@@ -1,9 +1,9 @@
 # Eatzy
 <br>
 <p align="center">
-I participated in the bootcamp program initiated by Techcareer Turkcell for Jetpack Compose. 
-  During this process, each student was tasked with creating a food delivery application. 
-  The project primarily demonstrates the use of MVI combined with MVVM, Coroutines, Flows, Firebase, and related technologies.
+I participated in the Jetpack Compose Bootcamp program organized by Kasım Adalan in collaboration with Techcareer.net and Turkcell. 
+In this process, each student was tasked with creating a food delivery application. 
+The project primarily illustrates the use of Coroutines, Flows, MVI combined with MVVM, Firebase and related technologies.
 </p> <br>
 
 <p align="center">

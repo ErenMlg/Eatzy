@@ -27,7 +27,6 @@ The project primarily illustrates the use of Coroutines, Flows, MVI combined wit
   <li><a href="https://kotlinlang.org/docs/ksp-overview.html">Kotlin KSP</a>: Kotlin Symbol Processing (KSP) is an API that you can use to develop lightweight compiler plugins</li>
   <li><a href="https://square.github.io/okhttp/">OkHttp</a>: OkHttp is an open-source HTTP client developed by Square and is widely used for handling network operations in Android apps.</li>
   <li><a href="https://developer.android.com/topic/architecture/data-layer">Repository</a>: This located in data layer that contains application data and business logic. </li>
-  <li><a href="https://developer.android.com/topic/architecture/domain-layer?hl=tr">Use Case</a>: Located domain layer that sits between the UI layer and the data layer.</li>
   <li><a href="https://coil-kt.github.io/coil/compose/">Coil</a>: Coil for show pictures on network.</li>
   <li><a href="https://coil-kt.github.io/coil/compose/">Firebase Auth</a>: Utilized for user login and registration functionalities.</li>
   <li><a href="https://coil-kt.github.io/coil/compose/">Firebase Firestore</a>: Used for storing user information, locations, payments, and promotion codes. (Payments etc. musn't hide here but this is prototype</li>
